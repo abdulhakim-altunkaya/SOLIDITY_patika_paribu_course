@@ -3,8 +3,8 @@
 pragma solidity >=0.8.7;
 
 contract ValueData {
-    //DATA TYPES: value and reference 
-    //VALUE TYPES: data stores a value
+    //A)DATA TYPES: value and reference 
+    //1.VALUE TYPES: data stores a value
     bool public a = false;
     uint public b = 25;
         // uint256:  2**256 - 1
@@ -18,13 +18,22 @@ contract ValueData {
     address public addr = address(5);
     bytes32 public c;
 
-    //REFERENCE TYPES: they dont store an actual value, 
-    //they store a reference which points where the actual value is
+    /*
+    2.REFERENCE TYPES: they dont store an actual value, 
+    they store a reference which points where the actual value is
 
 
-    //TYPES OF THE VARIABLES
-    //State variables: declared outside the functions, stored on the blockchain
-    //Local variables: declared inside the functions, not stored on the blockchain
-    //Global variables: blockchain related technical variables
-    //msg.sender (address), block.timestamp (uint), block.number(uint); 
+    B) TYPES OF THE VARIABLES
+    State variables: declared outside the functions, stored on the blockchain
+    Local variables: declared inside the functions, not stored on the blockchain
+    Global variables: blockchain related technical variables
+    msg.sender (address), block.timestamp (uint), block.number(uint);
+
+    C) DEFAULT VALUES
+    uint - 0
+    int - 0
+    address - address(0): 0x000...(40 zeros after x)
+    string - ""
+    bytes32 - 32 bytes hexadecimal representation of zero -- 0X0000...(64 zeros after 0) 
+    */
 }

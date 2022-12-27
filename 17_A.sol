@@ -8,4 +8,10 @@ contract A {
     function changeWord(string memory _word) external {
         myWord = _word;
     }
+
+    //Extra lines for contract C:
+    event FallbackLog(string message);
+    fallback() external {
+        emit FallbackLog("fallback triggered");
+    }
 }

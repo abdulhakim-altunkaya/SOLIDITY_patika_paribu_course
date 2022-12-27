@@ -10,4 +10,12 @@ contract C {
         data = _data;
     }
 
+    //This is how we can trigger a fallback on contract A.
+    //blabla() does not exist, therefore fallback will be triggered
+    function callNonExist(address otherContract, uint num) external {
+        (bool success, bytes memory _data) = otherContract.call{value: 0, gas: 10000}(abi.encodeWithSignature("blabla(uint)", num));
+        require(success, "call failed");
+        data =  _data;
+    }
+
 }

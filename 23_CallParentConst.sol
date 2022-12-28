@@ -32,6 +32,7 @@ contract YYY {
 
 }
 
+//If you will not change the inherited functions, then you wont need virtual override
 contract Z is XXX, YYY {
     string public anything;
 

@@ -1,0 +1,31 @@
+1.truffle init
+2.create your contract inside contracts folder
+3.make sure your pragma version is compatible with config.js
+4.truffle compile
+5.create deploy file in migrations folder (copy paste from 1_initial_migration.js)
+6. uncomment development network inside config.js
+
+7.GANACHE: truffle migrate -- ERROR RPC: because you need to have ganache open for it.
+Initiate ganache, make sure ganache localhost number is matching with config.js port number
+Generally ganache is 7545, and truffle is 8545. So, change truffle number to ganache.
+
+8.DEVCHAIN: If you dont want ganache, then you can say "truffle develop"
+Then a cmd will be waiting your command: "truffle migrate"
+Then: let contractInstance = await HelloWorld.deployed()
+Then: contractInstance.hello()
+Then: contractInstance.setWord("pomelo")
+Then: contractInstance.setWord("pomelo", {value: 10000})
+Then: contractInstance.setWord("apple", {value: web3.utils.toWei("1", "ether")})
+Then: contractInstance.getWord({from: accounts[2]}) //By default truffle chooses the first account. However, if you want to use second one, this is how it is done.
+
+9.If you want to deploy a contract from another contract by using the parameter of first contract:
+Go to deployment file:
+
+const ConstructorContract = artifacts.require("ConstructorContract");
+module.exports = function (deployer) {
+  deployer.deploy(ConstructorContract, "pomelo").then( async () => {
+		let instance = await ConstructorContract.deployed();
+		let message = instance.message();
+		return deployer.deploy(SecondContract, message)
+	})
+};

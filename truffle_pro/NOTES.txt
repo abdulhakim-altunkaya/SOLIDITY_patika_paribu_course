@@ -29,3 +29,26 @@ module.exports = function (deployer) {
 		return deployer.deploy(SecondContract, message)
 	})
 };
+
+
+10.TESTING
+1. Create a test file like in the example, Each contract block will require redeployment
+2. After you finish test block, type truffle compile, truffle develop, truffle migrate and then truffle test
+
+11.DEVELOPMENT NETWORK ACCOUNTS PRIVATE KEYS:
+If you do not want to use your metamask private keys, then:
+npx mnemonics
+copy the password string
+create a "secrets.json" file at the same level with config.js and put inside:
+{
+	"mnemonic": "worth where earn decline acid upgrade whip edge spell need junk mansion"
+}
+
+Then go to config.js and remove	const mnemonic line
+Then add this instead(this line must be active): 
+const mnemonic = require("./secrets.json").mnemonic;
+Uncomment this line: const HDWalletProvider....
+then install: npm install @truffle/hdwallet-provider
+
+Then uncomment (CRTL+K+U) "ropsten" network area and name it as goerli
+replace the node url with the one you have from ANKR RPC endpoints

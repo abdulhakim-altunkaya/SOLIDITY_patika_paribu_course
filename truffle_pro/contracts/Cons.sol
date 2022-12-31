@@ -2,7 +2,7 @@
 
 pragma solidity >=0.8.7;
 
-contract ConstructorContract {
+contract Cons {
     string public word;
 
     constructor(string memory a) {

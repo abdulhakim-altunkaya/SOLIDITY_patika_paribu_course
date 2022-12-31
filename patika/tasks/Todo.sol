@@ -18,10 +18,23 @@ contract Todo {
         todoList.push(TodoStruct(_task, false));
     }
 
-
+    function updateTask(uint index, string calldata _newTask) external {
+        todoList[index].taskText = _newTask;
+        //ikinci yol:
+        //TodoStruct storage task = todoList[index];
+        //task.taskText = _newTask;
+    }
+    //Burada todo görevinin durumu değiştiriyoruz
+    function updateStatus(uint index) external {
+        todoList[index].status = !todoList[index].status;
+    }
 
     //Burada bütün Todo listemizi görebiliyoruz.
     function getList() external view returns(TodoStruct[] memory) {
         return todoList;
+    }
+    //Burada istediğimiz todo görevini görebiliyoruz.
+    function getTask(uint index) external view returns(TodoStruct memory) {
+        return todoList[index];
     }
 }

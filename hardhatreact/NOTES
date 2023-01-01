@@ -101,3 +101,9 @@ Then wait 2 seconds for the name to appear.
 Then enter "0" inside decimal place and click to "import".
 You should see your NFT token.
 
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Capped.sol";
+
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/a4596cab053d46e0bf2957e2ed490cb3921539ee/contracts/token/ERC20/ERC20.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/a4596cab053d46e0bf2957e2ed490cb3921539ee/contracts/token/ERC20/extensions/ERC20Capped.sol";

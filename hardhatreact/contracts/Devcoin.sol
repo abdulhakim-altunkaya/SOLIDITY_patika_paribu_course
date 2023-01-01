@@ -14,12 +14,12 @@ contract Devcoin is ERC20Capped {
         }
         _;
     }
-    constructor(uint cap) ERC20("Ruta", "RUTA") ERC20Capped(cap * (10 ** 18)) {
+    constructor(uint cap) ERC20("DevCoin", "DEVCON") ERC20Capped(cap * (10 ** 18)) {
         owner = msg.sender;
     }
 
-    function mintToken(address receiver, uint _amount) external onlyOwner {
-        _mint(receiver, _amount*10**18);
+    function mintToken(uint _amount) external onlyOwner {
+        _mint(msg.sender, _amount*10**18);
     }
 
     function burnToken(uint _amount) external onlyOwner {
@@ -27,10 +27,18 @@ contract Devcoin is ERC20Capped {
     }
 
     function getMintedTokens() external view returns(uint) {
-        return totalSupply();
+        return totalSupply() / (10**18);
     }
 
     function getTokenName() external view returns(string memory) {
         return name();
+    }
+
+    function getContractAddress() external view returns(address) {
+        return address(this);
+    }
+
+    function getBalance() external view returns(uint) {
+        return balanceOf(msg.sender) / (10**18);
     }
 }

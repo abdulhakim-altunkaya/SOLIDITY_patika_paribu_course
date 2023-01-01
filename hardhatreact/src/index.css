@@ -2,4 +2,50 @@ body {
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: lightgoldenrodyellow;
+  padding: 30px;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+}
+h1{
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 30px 15px;
+  background-color: lightsalmon;
+  border-radius: 10px;
+}
+.App div {
+  margin-top: 30px;
+}
+
+button {
+  border: solid 2px palegreen;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: lightseagreen;
+  border-radius: 6px;
+  font-size: 16px;
+  padding: 7px 3px;
+  min-height: 24px;
+  width: 12vw;
+  cursor: pointer;
+}
+button:hover {
+  font-weight: bold;
+  background-color: slategray;
+  color: white;
+}
+.detailsArea {
+  display: flex;
+  flex-direction: column;
+}
+.detailsArea span{
+  margin-top: 10px;
+}
+
+input {
+  height: 35px;
+  border: solid 2px lightgreen;
+  border-radius: 8px;
+  font-size: 22px;
 }
